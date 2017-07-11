@@ -1,0 +1,18 @@
+valid:
+  title: Vaga Qualquer
+  requirements: false
+  institution: valid
+
+one:
+  title: MyString
+  description: MyText
+  requirements: false
+  requirements_description: MyText
+  institution: one
+
+two:
+  title: MyString
+  description: MyText
+  requirements: false
+  requirements_description: MyText
+  institution: two
