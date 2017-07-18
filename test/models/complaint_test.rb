@@ -1,13 +1,8 @@
 require 'test_helper'
 
 class ComplaintTest < ActiveSupport::TestCase
-  should belong_to :denunciable
+  should belong_to :denouncer
+  should belong_to :denounced
 
-  def setup
-    @complaint = complaints(:valid)
-  end
-
-  test 'valid complaint' do
-    assert @complaint.valid?
-  end
+  should validate_presence_of :reason
 end

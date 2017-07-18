@@ -1,10 +1,9 @@
 class CreateComplaints < ActiveRecord::Migration[5.1]
   def change
     create_table :complaints do |t|
-      t.references :denunciable, foreign_key: { to_table: :users }
-      t.integer :denunciable_type
-      t.string :reason
-      t.text :body
+      t.references :denouncer, polymorphic: true
+      t.references :denounced, polymorphic: true
+      t.text :reason
 
       t.timestamps
     end

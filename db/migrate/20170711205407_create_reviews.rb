@@ -1,9 +1,10 @@
 class CreateReviews < ActiveRecord::Migration[5.1]
   def change
     create_table :reviews do |t|
-      t.references :reviewable, foreign_key: { to_table: :users }
-      t.integer :reviewable_type
-      t.text :body
+      t.references :origin, polymorphic: true
+      t.references :receiver, polymorphic: true
+      t.integer :grade
+      t.text :notes
 
       t.timestamps
     end

@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :user_jobs
-  has_many :jobs, through: :user_jobs
-  has_many :reviews, as: :reviewable
+  has_many :subscriptions
+  has_many :jobs, through: :subscriptions
+  has_many :reviews, as: :receiver
 
-  has_many :institution_users
-  has_many :institutions, through: :institution_users
-  has_many :complaints, as: :denunciable
+  has_many :permissions
+  has_many :institutions, through: :permissions
+  has_many :complaints, as: :denounced
 end

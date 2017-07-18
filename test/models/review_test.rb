@@ -1,13 +1,9 @@
 require 'test_helper'
 
 class ReviewTest < ActiveSupport::TestCase
-  should belong_to :reviewable
+  should belong_to :origin
+  should belong_to :receiver
 
-  def setup
-    @review = reviews(:valid)
-  end
-
-  test 'valid review' do
-    assert @review.valid?
-  end
+  should validate_presence_of :grade
+  should validate_numericality_of(:grade).only_integer
 end

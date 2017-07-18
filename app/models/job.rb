@@ -1,7 +1,11 @@
 class Job < ApplicationRecord
-  validates :title, presence: true
-
   belongs_to :institution
-  has_many :user_jobs
-  has_many :users, through: :user_jobs
+  has_many :subscriptions
+  has_many :users, through: :subscriptions
+  
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :requirements, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end

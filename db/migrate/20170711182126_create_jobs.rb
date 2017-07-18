@@ -1,10 +1,11 @@
 class CreateJobs < ActiveRecord::Migration[5.1]
   def change
     create_table :jobs do |t|
-      t.string :title, null: false
+      t.string :title
       t.text :description
-      t.boolean :requirements, default: false
-      t.text :requirements_description
+      t.text :requirements
+      t.datetime :start_date
+      t.datetime :end_date
       t.references :institution, foreign_key: true
 
       t.timestamps
