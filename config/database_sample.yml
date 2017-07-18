@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  username: 
+  password:
+
+
+development:
+  <<: *default
+  database: hack2save_development
+
+
+test:
+  <<: *default
+  database: hack2save_test
