@@ -6,9 +6,9 @@ Our main goal is to build a place for Volunteering.
 
 It'll be an webapp where institutions (nonprofit organizations) can add jobs and volunteers can subscribe to its jobs. Not only manage this subscriptions, we want to make a clear environment for both sides know better who wants to work and with which kind of company a people will work.
 
-We ourselves are an open source project.
+We are an open source project.
 
-So, Welcome!
+So, WELCOME!
 
 ## Our technilogies
 
