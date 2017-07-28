@@ -16,11 +16,14 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'materialize-sass'
 gem 'material_icons' 
 gem 'redis'
 gem 'sidekiq'
 gem 'simple_form'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,7 +1,7 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: "registrations", :omniauth_callbacks => "callbacks" }
   mount Sidekiq::Web => 'sidekiq'
 
   root to: "home#index"
