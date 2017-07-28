@@ -17,7 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'materialize-sass'
-gem 'material_icons' 
+gem 'material_icons'
 gem 'redis'
 gem 'sidekiq'
 gem 'simple_form'
@@ -28,6 +28,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'
+  gem 'factory_girl_rails', '~> 4.7'
 end
 
 group :development do
