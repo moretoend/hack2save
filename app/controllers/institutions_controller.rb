@@ -1,5 +1,5 @@
 class InstitutionsController < ApplicationController
-    respond_to :json
+    before_action :get_institution, only: [:edit, :update]
 
     def index
         @institutions = Institution.all
@@ -19,7 +19,24 @@ class InstitutionsController < ApplicationController
         end
     end
 
+    def edit
+    end
+
+    def update
+        if @institution.update_attributes(institutions_params)
+            flash[:success] = "Instituição atualizada!"
+            redirect_to @institution
+        else
+            render 'edit'
+        end
+    end
+
     private
+
+    def get_institution
+      @institution = Institution.find(params[:id])
+    end
+
     def institutions_params
         params.require(:institution).permit(:name, :description, :category)
     end

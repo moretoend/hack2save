@@ -12,20 +12,21 @@ class InstitutionsControllerTest < ActionController::TestCase
     test "should get index" do
         get :index
         assert_response :success
-     end
+    end
 
-     test "should get new" do
-         get :new
-         assert_response :success
-      end
+    test "should get new" do
+        get :new
+        assert_response :success
+    end
 
-      test "should create a new Institution" do
-          assert_difference('Institution.count') do
-              institutions_params = attributes_for(:institution)
-              post :create, params: { institution: institutions_params }
-          end
+    test "should create a new institution" do
+        assert_difference('Institution.count') do
+            institutions_params = attributes_for(:institution)
+            post :create, params: { institution: institutions_params }
+        end
 
-          assert_redirected_to institution_path(Institution.last)
-      end
+        assert_equal 'Instituição criada com sucesso!', flash[:success]
+        assert_redirected_to institution_path(Institution.last)
+    end
 
 end
