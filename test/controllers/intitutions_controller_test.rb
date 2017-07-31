@@ -7,6 +7,7 @@ class InstitutionsControllerTest < ActionController::TestCase
 
     def setup
         sign_in create(:user)
+        @institution = create(:institution)
     end
 
     test "should get index" do
@@ -26,6 +27,18 @@ class InstitutionsControllerTest < ActionController::TestCase
         end
 
         assert_equal 'Instituição criada com sucesso!', flash[:success]
+        assert_redirected_to institution_path(Institution.last)
+    end
+
+    test "should get edit" do
+        get :edit,params: {id: @institution}
+        assert_response :success
+    end
+
+    test "should update institution" do
+        patch :update, params: {id: @institution, institution: {name: "updated"} }
+        @institution.reload
+        assert_equal "updated", @institution.name
         assert_redirected_to institution_path(Institution.last)
     end
 
