@@ -40,11 +40,20 @@ class InstitutionsControllerTest < ActionController::TestCase
         @institution.reload
         assert_equal "updated", @institution.name
         assert_redirected_to institution_path(Institution.last)
+        assert_equal 'Instituição atualizada!', flash[:success]
     end
 
     test "should show the institution" do
         get :show, params: {id: @institution}
         assert_response :success
+    end
+
+    test "should destroy the institution" do
+        assert_difference('Institution.count', -1) do
+            delete :destroy, params: {id: @institution}
+        end
+        assert_redirected_to institutions_path
+        assert_equal 'Instituição deletada!', flash[:success]
     end
 
 end

@@ -1,5 +1,5 @@
 class InstitutionsController < ApplicationController
-    before_action :get_institution, only: [:edit, :update, :show]
+    before_action :get_institution, only: [:edit, :update, :show, :destroy]
 
     def index
         @institutions = Institution.all
@@ -32,6 +32,12 @@ class InstitutionsController < ApplicationController
         else
             render 'edit'
         end
+    end
+
+    def destroy
+        @institution.destroy
+        flash[:success] = "Instituição deletada!"
+        redirect_to institutions_path
     end
 
     private
