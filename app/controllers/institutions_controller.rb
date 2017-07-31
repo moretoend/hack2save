@@ -1,5 +1,5 @@
 class InstitutionsController < ApplicationController
-    before_action :get_institution, only: [:edit, :update]
+    before_action :get_institution, only: [:edit, :update, :show]
 
     def index
         @institutions = Institution.all
@@ -17,6 +17,9 @@ class InstitutionsController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def show
     end
 
     def edit

@@ -31,7 +31,7 @@ class InstitutionsControllerTest < ActionController::TestCase
     end
 
     test "should get edit" do
-        get :edit,params: {id: @institution}
+        get :edit, params: {id: @institution}
         assert_response :success
     end
 
@@ -40,6 +40,11 @@ class InstitutionsControllerTest < ActionController::TestCase
         @institution.reload
         assert_equal "updated", @institution.name
         assert_redirected_to institution_path(Institution.last)
+    end
+
+    test "should show the institution" do
+        get :show, params: {id: @institution}
+        assert_response :success
     end
 
 end
