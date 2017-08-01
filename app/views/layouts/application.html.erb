@@ -11,4 +11,21 @@
   <body>
     <%= yield %>
   </body>
+
+  <!-- specific SCRIPTS section -->
+  <script>
+
+      // Initialize collapse button for sidebar
+      $(".menu-collapse").sideNav();
+      // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+      // $('.collapsible').collapsible();
+
+
+      // initialize selection for Filter Options
+      $(document).ready(function() {
+          $('select').material_select();
+        });
+
+  </script>
+
 </html>

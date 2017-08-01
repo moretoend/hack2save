@@ -1,0 +1,60 @@
+<!-- Dropdown Structure for navbar-->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">LogIn as User</a></li>
+  <li><a href="#!">LogIn as Institution</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">Sign-up</a></li>
+</ul>
+
+
+<!--  NAVBAR BEGIN -->
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="row">
+
+        <div class="col s3">
+          <a href="#!" class="brand-logo">
+            <i class="material-icons right">favorite</i>
+            Hack2Save
+          </a>
+        </div>
+
+        <div class="input-field col s3">
+          <i class="material-icons prefix">search</i>
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">Search...</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select multiple>
+            <option value="" disabled selected>Filter by institutions</option>
+            <option value="1">Institution 1</option>
+            <option value="2">Institution 2</option>
+            <option value="3">Institution 3</option>
+          </select>
+          <!-- <label>Filter by institutions</label> -->
+        </div>
+
+        <div class="col s3">
+          <ul class="right hide-on-med-and-down s4">
+            <li>
+              <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                  LogIn / SignUp
+                  <i class="material-icons right">account_circle</i>
+              </a>
+            </li>
+            <li>
+              <a href="" data-activates="slide-out" class="menu-collapse">
+                <i class="material-icons">menu</i>
+
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- NAVBAR END -->
