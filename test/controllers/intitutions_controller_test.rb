@@ -3,11 +3,10 @@ require "test_helper"
 class InstitutionsControllerTest < ActionController::TestCase
 
     include Devise::Test::ControllerHelpers
-    include FactoryGirl::Syntax::Methods
 
     def setup
-        sign_in create(:user)
-        @institution = create(:institution)
+        sign_in users(:standard)
+        @institution = institutions(:standard)
     end
 
     test "should get index" do
@@ -22,7 +21,7 @@ class InstitutionsControllerTest < ActionController::TestCase
 
     test "should create a new institution" do
         assert_difference('Institution.count') do
-            institutions_params = attributes_for(:institution)
+            institutions_params = institutions(:standard).attributes
             post :create, params: { institution: institutions_params }
         end
 
