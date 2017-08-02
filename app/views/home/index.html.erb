@@ -1,60 +1,29 @@
 <%= render partial: '/layouts/shared/sidebar' %>
 <%= render partial: '/layouts/shared/navbar' %>
 
-<h3>Home</h3>
-<%= link_to "Logout", destroy_user_session_path, data: { method: :delete } %>
-
 <!-- JOBS DASHBOARD BEGIN -->
 <div class="jobs-board">
-   <div class="row">
-      <div class="col s6 m6">
-          <div class="card">
-            <div class="card-image">
-              <img src="http://lorempixel.com/400/200/nature/">
-              <span class="card-title">Oportunidade A - Instituição X</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>Nessa vaga, o voluntário irá trabalhar com manutenções gerais, jardinagem e limpeza das instalações</p>
-              <hr>
-              <ul>Os pré-requisitos para preencher a vaga são:
-                <li>Motivação</li>
-                <li>Respeito ao próximo</li>
-                <li>Pró-atividade</li>
-                <li>Organização</li>
-              </ul>
-              <div class="card-action">
-                 <a href="#">Adicionar como favorito</a>
-                 <a href="#">Aplicar para essa vaga</a>
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <div class="col s6 m6">
-        <div class="card">
+  <div class="row">
+    <div class="col s6">
+      <div class="card horizontal">
           <div class="card-image">
-            <img src="http://lorempixel.com/400/200/nature/">
-            <span class="card-title">Oportunidade B - Instituição Y</span>
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+           <img src="https://lorempixel.com/200/200/nature/6">
           </div>
-          <div class="card-content">
-            <p>Nessa vaga, o voluntário irá trabalhar com manutenções gerais, jardinagem e limpeza das instalações</p>
-            <hr>
-            <ul>Os pré-requisitos para preencher a vaga são:
-              <li>Motivação</li>
-              <li>Respeito ao próximo</li>
-              <li>Pró-atividade</li>
-              <li>Organização</li>
-            </ul>
-            <div class="card-action">
-               <a href="#">Adicionar como favorito</a>
-               <a href="#">Aplicar para essa vaga</a>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5>Job 01 - Institution A</h5>
+              <hr>
+             <p>For this job, it's necessary full commitment from the volunteer. Good interpersonal and soft skills</p>
             </div>
-        </div>
+             <div class="card-action">
+               <a href="#">Add as favorite</a>
+               <a href="#">Apply for this job</a>
+             </div>
+          </div>
       </div>
     </div>
   </div>
+
 </div>
 
 <!-- JOBS DASHBOARD END -->
