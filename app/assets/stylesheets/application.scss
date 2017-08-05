@@ -14,6 +14,7 @@
  *= require_self
  */
 
+<<<<<<< 95bf90663e19327ea3b061d6a3383bad90793b53
 @import 'materialize/components/color';
 
 $primary-color: color("blue", "darken-4") !default;
@@ -21,8 +22,13 @@ $secondary-color: color("blue-grey", "darken-2") !default;
 $link-color: color("light-blue", "darken-1") !default;
 
 @import 'materialize';
-@import "material_icons";
+=======
+@import "materialize/components/color";
+$primary-color: color("blue", "darken-2") !default;
+$secondary-color: color("light-blue", "lighten-3") !default;
 
-nav {
-    background-color: #2196f3;
-  }
+@import "materialize/components/variables";
+
+@import "materialize";
+>>>>>>> changed to use sass
+@import "material_icons";
