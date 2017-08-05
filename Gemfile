@@ -27,6 +27,7 @@ gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rails-controller-testing'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'shoulda', '~> 3.5'
