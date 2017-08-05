@@ -14,9 +14,11 @@
  *= require_self
  */
 
+@import "materialize/components/color";
+$primary-color: color("blue", "darken-2") !default;
+$secondary-color: color("light-blue", "lighten-3") !default;
+
+@import "materialize/components/variables";
+
 @import "materialize";
 @import "material_icons";
-
-nav {
-    background-color: #2196f3;
-  }
