@@ -32,3 +32,10 @@ $secondary-color: color("light-blue", "lighten-3") !default;
 @import "materialize";
 >>>>>>> changed to use sass
 @import "material_icons";
+
+
+// Better positioning for selection input
+.select-wrapper input.select-dropdown {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
