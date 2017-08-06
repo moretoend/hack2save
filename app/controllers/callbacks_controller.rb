@@ -4,7 +4,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
     else
-    redirect_to new_user_registration_url
+      redirect_to new_user_registration_url
     end
   end
  
