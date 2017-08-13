@@ -1,0 +1,3 @@
+<%= yield :css if content_for?(:htmljs) %>
+<%= yield :js if content_for?(:htmljs) %>
+<%= yield :htmljs if content_for?(:htmljs) %>

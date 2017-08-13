@@ -1,0 +1,14 @@
+<title>
+  <%= content_for?(:title) ? yield(:title) : 'Hack2Save' %>
+</title>
+
+<%= favicon_link_tag %>
+<%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'http://fonts.googleapis.com/icon?family=Material+Icons', 'data-turbolinks-track': 'reload' %>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+<%= yield :head %>

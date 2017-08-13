@@ -14,5 +14,11 @@
  *= require_self
  */
 
-@import "materialize";
+@import 'materialize/components/color';
+
+$primary-color: color("blue", "darken-4") !default;
+$secondary-color: color("blue-grey", "darken-2") !default;
+$link-color: color("light-blue", "darken-1") !default;
+
+@import 'materialize';
 @import "material_icons";
