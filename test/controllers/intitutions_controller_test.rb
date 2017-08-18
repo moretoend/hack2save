@@ -38,7 +38,7 @@ class InstitutionsControllerTest < ActionController::TestCase
         patch :update, params: {id: @institution, institution: {name: "updated"} }
         @institution.reload
         assert_equal "updated", @institution.name
-        assert_redirected_to institution_path(Institution.last)
+        assert_redirected_to institution_path(@institution)
         assert_equal 'Instituição atualizada!', flash[:success]
     end
 
