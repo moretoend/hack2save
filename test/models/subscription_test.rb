@@ -6,4 +6,6 @@ class SubscriptionTest < ActiveSupport::TestCase
 
   should validate_presence_of :status
   should validate_presence_of :cover_letter
+
+  should define_enum_for(:status).with([:pending, :rejected, :approved])
 end

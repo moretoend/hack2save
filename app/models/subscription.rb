@@ -4,4 +4,6 @@ class Subscription < ApplicationRecord
 
   validates :status, presence: true
   validates :cover_letter, presence: true
+
+  enum status: { pending: 0, rejected: 1, approved: 2 }
 end
