@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :institution
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :destroy
   has_many :users, through: :subscriptions
   
   validates :title, presence: true

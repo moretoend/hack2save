@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class InstitutionTest < ActiveSupport::TestCase
-  should have_many :jobs
+  should have_many(:jobs).dependent(:destroy)
   should have_many(:permissions).dependent(:destroy)
   should have_many(:users).through(:permissions)
   
