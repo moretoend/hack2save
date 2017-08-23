@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title>Hack2save</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/head' %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= render 'layouts/body' %>
+    <%= render 'layouts/modal' %>
+    <%= render 'layouts/scripts' %>
   </body>
 </html>

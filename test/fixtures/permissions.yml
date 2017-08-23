@@ -1,0 +1,10 @@
+admin:
+  profile: 1
+  user: user_1 
+  institution: standard
+
+
+approver:
+  profile: 2
+  user: user_2
+  institution: standard 
