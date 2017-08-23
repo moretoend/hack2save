@@ -148,4 +148,14 @@ class SubscriptionsControllerTest < ActionController::TestCase
         @subscription.reload
         assert_not @subscription.status == nil
     end
+
+    test "PATCH #update should not update the cover letter of a subscription" do
+        params = { 
+            cover_letter: "test"
+        }
+        patch :update, params: { id: @subscription.id, subscription: params }
+        @subscription.reload
+        assert_not @subscription.cover_letter == "test"
+        
+    end
 end

@@ -18,4 +18,27 @@ class SubscriptionTest < ActiveSupport::TestCase
     assert subscription.status == "pending"
   end
 
+  test 'should not update cover letter' do
+    subscription = subscriptions(:standard)
+    subscription.update_attributes({ cover_letter: "test 2"})
+    subscription.reload
+    assert subscription.cover_letter != "test 2"
+  end
+
+  test 'should not update job' do
+    subscription = subscriptions(:standard)
+    job = jobs(:job_1)
+    subscription.update_attributes({ job: job})
+    subscription.reload
+    assert subscription.job_id != job.id
+  end
+
+  test 'should not update user' do
+    subscription = subscriptions(:standard)
+    user = users(:user_1)
+    subscription.update_attributes({ user: user})
+    subscription.reload
+    assert subscription.user_id != user.id
+  end
+
 end

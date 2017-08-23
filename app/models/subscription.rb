@@ -2,6 +2,8 @@ class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :job
 
+  attr_readonly :cover_letter, :user_id, :job_id
+
   validates :status, presence: true
   validates :cover_letter, presence: true
 
