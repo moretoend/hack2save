@@ -2,3 +2,9 @@ standard:
     name: Standard Institution
     description: Standard Description
     category: 0
+
+
+healthcare:
+  name: Healthcare 01
+  description: Healthcare 01
+  category: Healthcare
