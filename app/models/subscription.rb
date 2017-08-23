@@ -6,4 +6,12 @@ class Subscription < ApplicationRecord
   validates :cover_letter, presence: true
 
   enum status: { pending: 0, rejected: 1, approved: 2 }
+
+  before_validation :set_default_status, on: :create
+
+  private
+  
+  def set_default_status
+    self.status = :pending
+  end
 end
