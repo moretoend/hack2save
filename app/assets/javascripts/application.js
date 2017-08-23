@@ -16,3 +16,23 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
+
+$(document).on('ready page:load', function(event) {
+  // config materialize
+  $('.button-collapse').sideNav();
+  $('.collapsible').collapsible();
+  $('.dropdown-button').dropdown();
+  $('.tooltipped').tooltip({delay: 50})
+  $('select').material_select();
+  $('.modal-trigger').leanModal();
+  $('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 15,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false
+  });
+  Materialize.updateTextFields();
+
+});
