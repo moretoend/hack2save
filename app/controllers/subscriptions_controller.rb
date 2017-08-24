@@ -1,13 +1,13 @@
 class SubscriptionsController < ApplicationController
 
-    before_action :get_subscription, only: [:edit, :update]
+    before_action :get_subscription, only: [:edit, :update, :show]
 
     def index
         @subscriptions = subscription_scope
     end
 
     def new
-        build_subscription
+        @subscription = subscription_scope.build
     end
 
     def create
@@ -28,6 +28,9 @@ class SubscriptionsController < ApplicationController
         else
             render(:edit, status: :unprocessable_entity)
         end
+    end
+
+    def show
     end
     
     private

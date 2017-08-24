@@ -87,17 +87,25 @@ class SubscriptionsControllerTest < ActionController::TestCase
         assert_response 422
     end
 
+    test "GET #show should renders :show template" do
+        get :show, params: { id: @subscription.id }
+        assert_template :show
+    end
+
+    test "GET #show should return :success response" do
+        get :show, params: { id: @subscription.id }
+        assert_response :success
+    end
+
     test "GET #edit should renders :edit template" do
         get :edit, params: { id: @subscription.id }
         assert_template :edit
     end
 
-
     test "GET #edit should return :success response" do
         get :edit, params: { id: @subscription.id }
         assert_response :success
     end
-
 
     test "GET #edit should assign :permission" do
         get :edit, params: { id: @subscription.id }
@@ -156,6 +164,6 @@ class SubscriptionsControllerTest < ActionController::TestCase
         patch :update, params: { id: @subscription.id, subscription: params }
         @subscription.reload
         assert_not @subscription.cover_letter == "test"
-        
     end
+
 end
