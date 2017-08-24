@@ -29,6 +29,8 @@ pt-BR:
         requirements: "Requerimento"
         start_date: "Data de início"
         end_date: "Data de Fim"
+  messages:
+    authorization: "Você não tem autorização para efetuar essa operação"
   date:
     abbr_day_names:
     - Dom
