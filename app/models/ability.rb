@@ -12,9 +12,7 @@ class Ability
       can :create, Subscription
       can :read, Subscription, user_id: user.id
       can [:update, :read], Subscription do |subscription|
-        subscription.permissions.where(user_id: user.id).exit?
+        Permission.can_approve?(subscription.institution, user)
       end
-      cannot :destroy, Subscription
-
   end
 end

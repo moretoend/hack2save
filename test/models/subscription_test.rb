@@ -4,6 +4,8 @@ class SubscriptionTest < ActiveSupport::TestCase
   should belong_to :user
   should belong_to :job
 
+  should have_one(:institution).through(:job)
+
   should validate_presence_of :cover_letter
 
   should define_enum_for(:status).with([:pending, :rejected, :approved])
@@ -28,7 +30,7 @@ class SubscriptionTest < ActiveSupport::TestCase
   test 'should not update job' do
     subscription = subscriptions(:standard)
     job = jobs(:job_1)
-    subscription.update_attributes({ job: job})
+    subscription.update_attributes({ job_id: job.id})
     subscription.reload
     assert subscription.job_id != job.id
   end
@@ -36,9 +38,16 @@ class SubscriptionTest < ActiveSupport::TestCase
   test 'should not update user' do
     subscription = subscriptions(:standard)
     user = users(:user_1)
-    subscription.update_attributes({ user: user})
+    subscription.update_attributes({ user_id: user.id})
     subscription.reload
     assert subscription.user_id != user.id
+  end
+ 
+  test 'should update status' do
+    subscription = subscriptions(:standard)
+    subscription.update_attributes({ status: :approved})
+    subscription.reload
+    assert subscription.status == "approved"
   end
 
 end

@@ -1,12 +1,14 @@
 require 'test_helper'
 
+
 class SubscriptionsControllerTest < ActionController::TestCase
 
     include Devise::Test::ControllerHelpers
 
     setup do
-        @user = users(:standard)
+        @user = users(:user_3)
         @institution = institutions(:standard)
+        @institution.permissions.create(user: @user, profile: :owner)
         @job = jobs(:standard)
         @subscription = subscriptions(:standard)
         sign_in(@user)
@@ -44,7 +46,8 @@ class SubscriptionsControllerTest < ActionController::TestCase
 
     test "POST #create should add a new subscription with valid attributes" do
         params = { 
-            user_id: users(:standard).id, 
+            user_id: users(:standard).id,
+            job_id: jobs(:standard).id,
             cover_letter: "Cover letter test"
         }
         assert_difference("Subscription.count", 1) do
@@ -55,11 +58,11 @@ class SubscriptionsControllerTest < ActionController::TestCase
     test "POST #create should redirect_to :show with valid attributes" do
         params = { 
             user_id: users(:standard).id, 
+            job_id: jobs(:standard).id,
             cover_letter: "Cover letter test"
         }
         post :create, params: { job_id: @job.id, subscription: params }
-        new_subscription = assigns(:subscription)
-        assert_redirected_to subscription_path(new_subscription.id)
+        assert_redirected_to subscription_path(assigns(:subscription).id)
     end
 
     test "POST #create should not add a subscription with invalid attributes" do
@@ -114,7 +117,6 @@ class SubscriptionsControllerTest < ActionController::TestCase
 
     test "PATCH #update should update a subscription with valid attributes" do
         params = { 
-            # user_id: users(:standard).id,
             status: :approved
         }
         patch :update, params: {id: @subscription.id, subscription: params }
@@ -124,12 +126,10 @@ class SubscriptionsControllerTest < ActionController::TestCase
     
     test "PATCH #update should redirect_to :show with valid attributes" do
         params = { 
-            # user_id: users(:standard).id,
             status: :approved
         }
         patch :update, params: { id: @subscription.id, subscription: params }
-        new_subscription = assigns(:subscription)
-        assert_redirected_to subscription_path(new_subscription.id)
+        assert_redirected_to subscription_path(@subscription.id)
     end
     
     test "PATCH #update should render :edit with invalid attributes" do
@@ -164,6 +164,26 @@ class SubscriptionsControllerTest < ActionController::TestCase
         patch :update, params: { id: @subscription.id, subscription: params }
         @subscription.reload
         assert_not @subscription.cover_letter == "test"
+    end
+
+    test "PATCH #update should not update a subscription without permission" do
+        sign_in(users(:user_9))
+        params = { 
+            status: :approved
+        }
+        patch :update, params: {id: @subscription.id, subscription: params }
+        @subscription.reload
+        assert @subscription.status != "approved"
+    end
+
+    test "PATCH #update should return 302 response without permission" do
+        sign_in(users(:user_9))
+        params = { 
+            status: :approved
+        }
+        patch :update, params: {id: @subscription.id, subscription: params }
+        assert_response 302
+        # assert_redirected_to root_path()
     end
 
 end

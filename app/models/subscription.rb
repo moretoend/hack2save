@@ -1,7 +1,8 @@
 class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :job
-
+  has_one :institution, through: :job
+  
   attr_readonly :cover_letter, :user_id, :job_id
 
   validates :status, presence: true
@@ -12,7 +13,7 @@ class Subscription < ApplicationRecord
   before_validation :set_default_status, on: :create
 
   private
-  
+   
   def set_default_status
     self.status = :pending
   end
