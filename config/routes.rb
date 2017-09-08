@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   resources :institutions do
     resources :permissions, except: [:show]
   end
+  
+  resources :jobs do
+    resources :subscriptions, only: [:index, :new, :create]
+  end
+  resources :subscriptions, only: [:show, :edit, :update]
+
 end

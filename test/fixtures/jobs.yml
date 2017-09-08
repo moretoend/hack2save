@@ -1,0 +1,12 @@
+standard:
+    title: Standard Job
+    description: Standard Description
+    requirements: Standard Requirements
+    institution: standard
+
+
+job_1:
+    title: Job 1
+    description: Description Job 1
+    requirements: Requirements Job 1
+    institution: standard

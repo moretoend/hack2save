@@ -6,4 +6,5 @@ class PermissionTest < ActiveSupport::TestCase
 
   should validate_presence_of :profile 
   should define_enum_for(:profile).with([:owner, :admin, :approver])
+
 end

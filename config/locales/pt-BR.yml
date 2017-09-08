@@ -23,6 +23,10 @@ pt-BR:
       subscription:
         status: "Status"
         cover_letter: "Carta de apresentação"
+        statuses:
+          pending: "Pendente"
+          rejected: "Rejeitado"
+          approved: "Aprovado"
       job:
         title: "Título"
         description: "Descrição"
