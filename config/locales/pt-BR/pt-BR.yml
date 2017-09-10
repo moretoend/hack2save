@@ -9,7 +9,9 @@ pt-BR:
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
     models:
       user: "Usuário"
-      institution: "Instituição"
+      institution: 
+        one: "Instituição"
+        other: "Instituições"
       subscription: "Inscrição"
       job: "Trabalho"
     attributes:
