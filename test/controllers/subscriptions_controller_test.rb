@@ -9,7 +9,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
         @user = users(:user_3)
         @institution = institutions(:standard)
         @institution.permissions.create(user: @user, profile: :owner)
-        @job = jobs(:standard)
+        @job = jobs(:job_1)
         @subscription = subscriptions(:standard)
         sign_in(@user)
     end
@@ -47,7 +47,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     test "POST #create should add a new subscription with valid attributes" do
         params = { 
             user_id: users(:standard).id,
-            job_id: jobs(:standard).id,
+            job_id: jobs(:job_0).id,
             cover_letter: "Cover letter test"
         }
         assert_difference("Subscription.count", 1) do
@@ -58,7 +58,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     test "POST #create should redirect_to :show with valid attributes" do
         params = { 
             user_id: users(:standard).id, 
-            job_id: jobs(:standard).id,
+            job_id: jobs(:job_0).id,
             cover_letter: "Cover letter test"
         }
         post :create, params: { job_id: @job.id, subscription: params }

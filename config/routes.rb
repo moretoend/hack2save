@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :institutions do
     resources :permissions, except: [:show]
+    resources :jobs
   end
   
   resources :jobs do
