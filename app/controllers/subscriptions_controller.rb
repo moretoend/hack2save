@@ -24,10 +24,14 @@ class SubscriptionsController < ApplicationController
     end
 
     def update
-        if @subscription.update_attributes(subscription_params) 
-            redirect_to subscription_path(@subscription.id) 
-        else
-            render(:edit, status: :unprocessable_entity)
+        respond_to do |format|
+            if @subscription.update_attributes(subscription_params) 
+                format.html { redirect_to subscription_path(@subscription.id) }
+                format.json { render json: @subscription}
+            else
+                format.html { render(:edit, status: :unprocessable_entity) }
+                format.json { render :json => @product.errors, :status => :unprocessable_entity }
+            end
         end
     end
 
