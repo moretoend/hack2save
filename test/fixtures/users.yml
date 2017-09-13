@@ -1,10 +1,12 @@
 standard:
+  name: "User Standard"
   email: a@a.com
   encrypted_password: <%= User.new.send(:password_digest, '12345678') %>
  
 
 <% 10.times do |n| %>
 user_<%= n %>:
+  name: "User <%= n %>"
   email: email<%= n %>@any.com
   encrypted_password: <%= User.new.send(:password_digest, '12345678') %>
 <% end %>

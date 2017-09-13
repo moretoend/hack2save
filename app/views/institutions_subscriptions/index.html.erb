@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <h4 class="header"><%= @institution.name %></h4>
+  </div>
+  <div class="row">
+    <%= form_tag institution_subscriptions_url(@institution), method: :get, id: 'filter_form', remote: true do %>
+      <div class="col s12">
+        <div class="input-field inline col s12 m5 l6">
+          <%= text_field_tag 'search', @search %>
+          <label for="filter_job" class=""><%= t('actions.filter') %></label>
+        </div>
+        <div class="col s11 offset-s1 m6 offset-m1 l5 offset-l1">
+          <div class="row">
+            <div class="input-field inline col s5 ">
+              <%= text_field_tag 'date_start', @date_start_str, class: "datepicker" %>
+            </div>
+            <div class="input-field col"><%= t('messages.to') %></div>
+            <div class="input-field inline col s5">
+              <%= text_field_tag 'date_end', @date_end_str, class: "datepicker" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row" id="table">
+    <%= render 'table' %>
+  </div>
+
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">add</i>
+    </a>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+
+    function filterSubscription(e) {
+      $('#filter_form').submit();
+    }
+    
+    $('.datepicker').on('change', function(e) {
+      filterSubscription();
+      return false;
+    });
+
+    $('#search').on('keyup', function(e) {
+      if (e.keyCode == 13){
+        filterSubscription();
+        return false;
+      }
+    });
+
+    $("input[type=checkbox][name='accept_subscription']").on('change', function() {
+      var status = this.checked? 'approved' : 'rejected';
+      $.ajax({
+        url: '/subscriptions/'+$(this).val()+'.json',
+        type:'PUT',
+        data: {
+          subscription: {
+            status: status
+          }
+        }
+      }).success(function(a){
+        msg = '<%= t('messages.updated') %>'
+        Materialize.toast(msg, 3000, 'blue');
+      }).fail(function(){
+        msg = '<%= t('messages.error_update') %>'
+        Materialize.toast(msg, 3000, 'red');
+      });
+    });
+  });
+</script>

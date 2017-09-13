@@ -1,0 +1,49 @@
+<div class="col s12">
+    <table class="bordered highlight centered responsive-table">
+        <thead>
+        <tr>
+            <th><%= t('activerecord.models.job') %></th>
+            <th><%= t('activerecord.models.user') %></th>
+            <th><%= t('activerecord.attributes.subscription.cover_letter') %></th>
+            <th><%= t('activerecord.attributes.subscription.created_at') %></th>
+            <th><%= t('activerecord.attributes.subscription.status') %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @subscriptions.each do |subscription| %>
+            <tr>
+            <td><%= subscription.job.title %></td>
+            <td><%= subscription.user.name %></td>
+            <td>
+                <a name="cover_letter_button" href="#cover_letter_<%= subscription.id %>" class="waves-effect waves-light btn modal-trigger">
+                <i class="material-icons right">mail_outline</i>
+                <%= t('actions.read') %>
+                </a>
+                <div id="cover_letter_<%= subscription.id %>" class="modal">
+                <div class="modal-content">
+                    <h4><%= t('activerecord.attributes.subscription.cover_letter') %></h4>
+                    <p><%= subscription.cover_letter %></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">
+                    <%= t('actions.close') %>
+                    </a>
+                </div>
+                </div>
+            </td>
+            <td><%= I18n.l(subscription.created_at.to_date) %></td>
+            <td>
+                <div class="switch">
+                <label>
+                    <%= t('actions.reject') %>
+                    <%= check_box_tag 'accept_subscription', subscription.id, subscription.approved?, :id => "accept_subscription_#{subscription.id}" %>
+                    <span class="lever"></span>
+                    <%= t('actions.approve') %>
+                </label>
+                </div>
+            </td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>

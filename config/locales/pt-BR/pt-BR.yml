@@ -24,6 +24,7 @@ pt-BR:
         category: "Categoria"
       subscription:
         status: "Status"
+        created_at: "Data"
         cover_letter: "Carta de apresentação"
         statuses:
           pending: "Pendente"
@@ -37,6 +38,21 @@ pt-BR:
         end_date: "Data de Fim"
   messages:
     authorization: "Você não tem autorização para efetuar essa operação"
+    updated: "Alteração efetuada com sucesso"
+    error_update: "Não foi possível efetuar a alteração"
+    to: "até"
+    today: "Hoje"
+  actions:
+    close: "Fechar"
+    read: "Ler"
+    filter: "Filtrar"
+    approve: "Aprovar"
+    reject: "Rejeitar"
+    clear: "Limpar"
+    next_month: "Próximo mês"
+    prev_month: "Mês anterior"
+    select_month: "Selecione um mês"
+    select_year: "Selecione um ano"
   date:
     abbr_day_names:
     - Dom
@@ -68,6 +84,14 @@ pt-BR:
     - Quinta-feira
     - Sexta-feira
     - Sábado
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sab
     formats:
       default: "%d/%m/%Y"
       long: "%d de %B de %Y"

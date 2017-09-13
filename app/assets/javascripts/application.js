@@ -24,15 +24,12 @@ $(document).on('ready page:load', function(event) {
   $('.dropdown-button').dropdown();
   $('.tooltipped').tooltip({delay: 50})
   $('select').material_select();
-  $('.modal-trigger').leanModal();
-  $('.datepicker').pickadate({
-    selectMonths: true,
-    selectYears: 15,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    closeOnSelect: false
+  $('.modal').modal({
+    dismissible: true
   });
+  //Fix reaload with turbolinks
+  $('a.modal-action').click(function(e){e.preventDefault()});
+
   Materialize.updateTextFields();
 
 });
