@@ -1,12 +1,9 @@
-standard:
-    title: Standard Job
-    description: Standard Description
-    requirements: Standard Requirements
-    institution: standard
-
-
-job_1:
-    title: Job 1
-    description: Description Job 1
-    requirements: Requirements Job 1
-    institution: standard
+<% 5.times do |n| %>
+job_<%= n %>:
+  title: Title <%= n %>
+  description: Description <%= n %>
+  requirements: Knowledge
+  start_date: <%= n.months.ago %>
+  end_date: <%= n.days.ago %>
+  institution: standard
+<% end %>

@@ -2,7 +2,7 @@ require "sidekiq/web"
 
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { registrations: "registrations", :omniauth_callbacks => "callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   mount Sidekiq::Web => 'sidekiq'
 
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :institutions do
     resources :permissions, except: [:show]
+    resources :jobs
   end
   
   resources :jobs do

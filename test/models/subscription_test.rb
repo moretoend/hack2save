@@ -13,7 +13,7 @@ class SubscriptionTest < ActiveSupport::TestCase
   test 'should set the default status' do
     subscription = Subscription.new({
       user_id: users(:standard).id, 
-      job_id: jobs(:standard).id, 
+      job_id: jobs(:job_1).id, 
       cover_letter: "Cover letter test",
     })
     subscription.valid?
@@ -29,7 +29,7 @@ class SubscriptionTest < ActiveSupport::TestCase
 
   test 'should not update job' do
     subscription = subscriptions(:standard)
-    job = jobs(:job_1)
+    job = jobs(:job_0)
     subscription.update_attributes({ job_id: job.id})
     subscription.reload
     assert subscription.job_id != job.id
