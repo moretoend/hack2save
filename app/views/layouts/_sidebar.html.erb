@@ -19,7 +19,7 @@
   <li><a href="#!"><i class="material-icons">edit</i>Reviews</a></li>
   <li><a href="#!"><i class="material-icons">person</i>Profile</a></li>
   <li>
-    <%= link_to(destroy_user_session_path) do %>
+    <%= link_to(destroy_user_session_path, data: { method: :delete } ) do %>
         <i class="material-icons">close</i> Logout
     <% end %>
   </li>
@@ -31,7 +31,7 @@
   <li><a href="#!"><i class="material-icons">library_books</i>Jobs Posted</a></li>
   <li><a href="#!"><i class="material-icons">account_balance</i>Profile</a></li>
   <li>
-    <%= link_to(destroy_user_session_path) do %>
+    <%= link_to(destroy_user_session_path, data: { method: :delete } ) do %>
         <i class="material-icons">close</i> Logout
     <% end %>
   </li>
