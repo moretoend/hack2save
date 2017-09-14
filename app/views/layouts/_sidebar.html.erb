@@ -1,0 +1,38 @@
+<ul id="slide-out" class="side-nav">
+  <li>
+    <div class="user-view">
+     <div class="background">
+       <img src="http://materializecss.com/images/office.jpg">
+     </div>
+     <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
+     <a href="#!name"><span class="white-text name">John Doe</span></a>
+     <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+   </div>
+  </li>
+
+<!-- TODO: load lists below according with type of user: institution or volunteer -->
+
+
+  <li><a class="subheader">Volunteers</a></li>
+  <li><a href="#!"><i class="material-icons">insert_drive_file</i>My Subscriptions</a></li>
+  <li><a href="#!"><i class="material-icons">star_border</i>Favorite Jobs</a></li>
+  <li><a href="#!"><i class="material-icons">edit</i>Reviews</a></li>
+  <li><a href="#!"><i class="material-icons">person</i>Profile</a></li>
+  <li>
+    <%= link_to(destroy_user_session_path, data: { method: :delete } ) do %>
+        <i class="material-icons">close</i> Logout
+    <% end %>
+  </li>
+  <li><div class="divider"></div></li>
+
+
+  <li><a class="subheader">Institutions</a></li>
+  <li><a href="#!"><i class="material-icons">view_list</i>Subscriptions</a></li>
+  <li><a href="#!"><i class="material-icons">library_books</i>Jobs Posted</a></li>
+  <li><a href="#!"><i class="material-icons">account_balance</i>Profile</a></li>
+  <li>
+    <%= link_to(destroy_user_session_path, data: { method: :delete } ) do %>
+        <i class="material-icons">close</i> Logout
+    <% end %>
+  </li>
+</ul>
