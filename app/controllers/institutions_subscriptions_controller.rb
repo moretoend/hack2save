@@ -25,14 +25,16 @@ class InstitutionsSubscriptionsController < ApplicationController
 
     def filter_by_date_start
         @date_start_str = params[:date_start]
-        if @date_start = parse_date(@date_start_str)
+        @date_start = parse_date(@date_start_str)
+        if @date_start
             @subscriptions = @subscriptions.where("subscriptions.created_at >= ?", @date_start.at_beginning_of_day)
         end
     end
 
     def filter_by_date_end
         @date_end_str = params[:date_end]
-        if @date_end = parse_date(@date_end_str)
+        @date_end = parse_date(@date_end_str)
+        if @date_end
             @subscriptions = @subscriptions.where("subscriptions.created_at <= ?", @date_end.at_end_of_day)
         end
     end
