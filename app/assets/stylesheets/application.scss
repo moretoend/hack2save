@@ -21,4 +21,14 @@ $secondary-color: color("blue-grey", "darken-2") !default;
 $link-color: color("light-blue", "darken-1") !default;
 
 @import 'materialize';
+
+@import "materialize/components/variables";
+
 @import "material_icons";
+
+
+// Better positioning for selection input
+.select-wrapper input.select-dropdown {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
