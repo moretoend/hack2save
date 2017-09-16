@@ -1,0 +1,21 @@
+$(document).on('ready page:load', function(event) {
+    $('.datepicker').pickadate({
+        monthsFull: <%= I18n.t('date.month_names')[1,12].to_s %>,
+        monthsShort: <%= I18n.t('date.abbr_month_names')[1,12].to_s%>,
+        weekdaysFull: <%= I18n.t('date.day_names').to_s%>,
+        weekdaysShort: <%= I18n.t('date.abbr_day_names').to_s%>,
+        today: "<%= I18n.t('messages.today') %>",
+        clear: "<%= I18n.t('actions.clear') %>",
+        close: "<%= I18n.t('actions.close') %>",
+        labelMonthNext: "<%= I18n.t('actions.next_month') %>",
+        labelMonthPrev: "<%= I18n.t('actions.prev_month') %>",
+        labelMonthSelect: "<%= I18n.t('actions.select_month') %>",
+        labelYearSelect: "<%= I18n.t('actions.select_year') %>",
+        format: 'dd/mm/yyyy',
+        selectMonths: true, 
+        selectYears: 15,
+        closeOnSelect: true
+      });
+  });
+  
+  

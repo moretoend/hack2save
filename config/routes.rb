@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :institutions do
     resources :permissions, except: [:show]
     resources :jobs
+    get 'subscriptions', to: 'institutions_subscriptions#index'
   end
   
   resources :jobs do
