@@ -1,0 +1,12 @@
+pt-BR:
+  actions:
+    add: Adicionar
+    edit: Editar
+    back: Voltar
+
+
+  institutions:
+    new:
+      page_title: "Cadastrar Instituição"
+    edit:
+      page_title: "Editar Instituição"
