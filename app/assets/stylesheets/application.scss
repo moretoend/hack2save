@@ -26,9 +26,15 @@ $link-color: color("light-blue", "darken-1") !default;
 
 @import "material_icons";
 
-
 // Better positioning for selection input
 .select-wrapper input.select-dropdown {
   margin-bottom: 0px;
   margin-top: 10px;
+}
+
+.has-error {
+  .error-block {
+    color: red;
+    font-size: 0.8em;
+  }
 }
