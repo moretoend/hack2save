@@ -1,0 +1,6 @@
+<%= simple_form_for @institution do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category, collection: Institution.category_values, include_blank: true %>
+  <%= f.input :description, input_html: { class: "materialize-textarea" } %>
+  <%= f.submit class: "btn blue" %>
+<% end %>
