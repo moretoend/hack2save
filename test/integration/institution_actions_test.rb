@@ -15,7 +15,7 @@ class InstitutionActionsTest < ActionDispatch::IntegrationTest
 
     assert_difference('Institution.count') do
       post institutions_path, 
-           params: { institution: { name: "Test", description: "Testing", category: "Any" } }
+           params: { institution: { name: "Test", description: "Testing", category: "healthcare" } }
     end
     assert_response :redirect
     follow_redirect!
