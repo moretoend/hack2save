@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col s12 m12 l12">
+    <h4 class="col s12 m10 l10">
+      <%= Institution.model_name.human(count: 2) %>
+    </h4>
+
+    <div class="col s12 m2 l2" style="margin-top: 1em">
+      <%= link_to new_institution_path, class: "waves-effect waves-light btn right green" do %>
+        <i class="material-icons right">add</i>
+        Add
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m12 l12">
+    <table class="responsive-table highlight">
+      <thead>
+        <tr>
+          <th><%= Institution.human_attribute_name(:name) %></th>
+          <th><%= Institution.human_attribute_name(:description) %></th>
+          <th><%= Institution.human_attribute_name(:category) %></th>
+          <th><%= Institution.human_attribute_name(:created_at) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @institutions.each do |institution| %>
+          <tr>
+            <td><%= institution.name %></td>
+            <td><%= institution.description %></td>
+            <td><%= institution.category %></td>
+            <td><%= I18n.l institution.created_at %></td>
+            <td>
+              <%= link_to edit_institution_path(institution), class: "btn-floating blue" do %>
+                <i class="material-icons">edit</i>
+              <% end %>
+              <%= link_to institution, class: "btn btn-floating red", data: { confirm: "Are you sure?" } do %>
+                <i class="material-icons">highlight_remove</i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      institution: 
+        one: "Instituição"
+        other: "Instituições"
+    attributes:
+      institution:
+        name: "Nome"
+        description: "Descrição"
+        category: "Categoria"
+ 
