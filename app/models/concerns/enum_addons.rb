@@ -11,8 +11,7 @@ module EnumAddons
 
       singleton_class.class_eval do
         define_method("with_#{defined_enum}") do |value|
-          byebug
-          where("#{defined_enum} = ?", enum_values[value.to_s])
+          where("? = ?", defined_enum, enum_values[value.to_s])
         end
 
         define_method("#{defined_enum}_values") do
