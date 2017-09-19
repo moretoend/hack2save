@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :institutions do
+    post :set_institution, on: :collection
     resources :permissions, except: [:show]
     resources :jobs
     get 'subscriptions', to: 'institutions_subscriptions#index'

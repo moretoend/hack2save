@@ -40,6 +40,17 @@ class InstitutionsController < ApplicationController
         redirect_to institutions_path
     end
 
+
+    def set_institution
+      if Institution.where(id: params[:institution_id]).any?
+        session[:institution] = params[:institution_id]
+        flash[:success] = "Instituição foi alterada com sucesso!"
+      else
+        flash[:error] = "Ocorreu um erro ao alterar a instituição."
+      end
+      redirect_to root_path
+    end
+
     private
 
     def get_institution

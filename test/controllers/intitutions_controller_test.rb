@@ -55,4 +55,16 @@ class InstitutionsControllerTest < ActionController::TestCase
         assert_equal 'Instituição deletada!', flash[:success]
     end
 
+
+    test "POST #set_institution should set 'institution' session key to current institution" do
+      post :set_institution, params: { institution_id: @institution.id }
+      assert session["institution"] == @institution.id.to_s
+    end
+
+
+    test "POST #set_institution should redirect root_path" do
+      post :set_institution, params: { institution_id: @institution.id }
+      assert_redirected_to root_path
+    end
+
 end
