@@ -28,12 +28,11 @@
         </div>
 
         <div class="input-field col s12 m12 l4 hide-on-med-and-down" >
-          <select multiple >
-            <option value="" disabled selected>Filter by institutions</option>
-            <option value="1">Institution 1</option>
-            <option value="2">Institution 2</option>
-            <option value="3">Institution 3</option>
-          </select>
+          <%= form_tag set_institution_institutions_path, method: :post, id: "select_institution" do |f| %>
+            <%= select_tag :institution_id, 
+                           options_for_select(Institution.all.map { |item| [item.name, item.id] }, session[:institution]),
+                           onchange: "$('#select_institution').submit()" %>
+          <% end %>
           <!-- <label>Filter by institutions</label> -->
         </div>
       </div>
