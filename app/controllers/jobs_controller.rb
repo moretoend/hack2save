@@ -16,7 +16,7 @@ class JobsController < ApplicationController
 
   def create
     build_job
-    save_job || render(institution_job(@job.institution), status: :unprocessable_entity)
+    save_job || render(:new, status: :unprocessable_entity)
   end
 
 
@@ -30,7 +30,7 @@ class JobsController < ApplicationController
 
   def update
     build_job
-    save_job || render(edit_institution_job_path(@job.institution, @job), status: :unprocessable_entity)
+    save_job || render(:edit, status: :unprocessable_entity)
   end
 
 
