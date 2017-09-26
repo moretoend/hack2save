@@ -1,0 +1,8 @@
+<%= simple_form_for [@institution, @job] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description, input_html: { class: "materialize-textarea" } %>
+  <%= f.input :requirements %>
+  <%= f.input :start_date, as: :date, html5: true %>
+  <%= f.input :end_date, as: :date, html5: true %>
+  <%= f.submit class: "btn blue" %>
+<% end %>

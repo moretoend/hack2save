@@ -1,0 +1,35 @@
+<div class="row">
+<div class="col s12 m12 l12">
+  <h4>
+    <%= @job.title %>
+    <div class="right">
+      <%= link_to t("actions.edit"), edit_institution_job_path(@job), class: "btn blue"  %>
+      <%= link_to t("actions.back"), institution_jobs_path, class: "btn gray"  %>
+    </div>
+  </h4>
+</div>
+</div>
+
+
+<div class="row">
+<div class="col s12 m12 l12">
+  <span style="font-weight: bold"><%= Job.human_attribute_name(:title) %>:</span>
+  <span><%= @job.title %></span>
+  <br />
+
+  <span style="font-weight: bold"><%= Job.human_attribute_name(:description) %>:</span>
+  <blockquote><%= @job.description %></blockquote>
+  <br />
+  
+  <span style="font-weight: bold"><%= Job.human_attribute_name(:requirements) %>:</span>
+  <blockquote><%= @job.requirements %></blockquote>
+  <br />
+  
+  <span style="font-weight: bold"><%= Job.human_attribute_name(:start_date) %>:</span>
+  <blockquote><%= @job.start_date %></blockquote>
+  <br />
+  
+  <span style="font-weight: bold"><%= Job.human_attribute_name(:end_date) %>:</span>
+  <blockquote><%= @job.end_date %></blockquote>
+</div>
+</div>

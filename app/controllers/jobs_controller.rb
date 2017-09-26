@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   
   before_action :load_jobs, only: :index
   before_action :load_job, only: [:show, :edit, :update, :destroy]
+  before_action :load_institution, only: [:index, :new, :edit]
 
 
   def index
@@ -15,7 +16,7 @@ class JobsController < ApplicationController
 
   def create
     build_job
-    save_job || render(:new, status: :unprocessable_entity)
+    save_job || render(institution_job(@job.institution), status: :unprocessable_entity)
   end
 
 
@@ -29,7 +30,7 @@ class JobsController < ApplicationController
 
   def update
     build_job
-    save_job || render(:edit, status: :unprocessable_entity)
+    save_job || render(edit_institution_job_path(@job.institution, @job), status: :unprocessable_entity)
   end
 
 
@@ -73,4 +74,7 @@ class JobsController < ApplicationController
     Institution.find(params[:institution_id]).jobs
   end
 
+  def load_institution
+    @institution = Institution.find(params[:institution_id])
+  end
 end
