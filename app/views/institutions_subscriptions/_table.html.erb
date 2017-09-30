@@ -33,17 +33,67 @@
             </td>
             <td><%= I18n.l(subscription.created_at.to_date) %></td>
             <td>
-                <div class="switch">
-                <label>
-                    <%= t('actions.reject') %>
-                    <%= check_box_tag 'accept_subscription', subscription.id, subscription.approved?, :id => "accept_subscription_#{subscription.id}" %>
-                    <span class="lever"></span>
-                    <%= t('actions.approve') %>
-                </label>
+                <div id="group_button_status">
+                    <%= hidden_field :subscription, :id, :value => subscription.id %>
+                    <a class="reject_button waves-effect waves-light btn group_button_left <%='grey lighten-1' unless subscription.rejected? %>">
+                        <i class="material-icons left">do_not_disturb</i>
+                        <%= t('actions.reject') %>
+                    </a>
+                    <a class="accept_button waves-effect waves-light btn group_button_right <%= 'grey lighten-1' unless subscription.approved? %>">
+                        <i class="material-icons right">check_circle</i>
+                        <%= t('actions.approve') %>
+                    </a>
                 </div>
             </td>
             </tr>
         <% end %>
         </tbody>
     </table>
+
+
+<script>
+  $(document).ready(function () {
+
+    function updateStatus(element, status) {
+      var checkbox = $(element).parent().find("input#subscription_id");
+      var id=checkbox.val();
+      $.ajax({
+        url: '/subscriptions/'+id+'.json',
+        type:'PUT',
+        data: {
+          subscription: {
+            status: status
+          }
+        }
+      }).success(function(a){
+        updateStatusView(element, a.status)
+        msg = '<%= t('messages.updated') %>'
+        Materialize.toast(msg, 3000, 'blue');
+      }).fail(function(){
+        msg = '<%= t('messages.error_update') %>'
+        Materialize.toast(msg, 3000, 'red');
+      });
+    }
+
+    function updateStatusView(element, status){
+        var leftButton = $(element).parent().find('.group_button_left');
+        var rightButton = $(element).parent().find('.group_button_right');
+        if(status == "approved"){
+          leftButton.addClass( "grey lighten-1" );
+          rightButton.removeClass( "grey lighten-1" );
+        }else{
+          leftButton.removeClass( "grey lighten-1" );
+          rightButton.addClass( "grey lighten-1" );
+        }
+    }
+
+    $("a.accept_button").on('click', function(event) {
+      updateStatus(event.target, 'approved');
+    });
+
+    $("a.reject_button").on('click', function(event) {
+      updateStatus(event.target, 'rejected');
+    });
+  });
+</script>
 </div>

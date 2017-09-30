@@ -31,15 +31,16 @@ class AproveSubscriptionTest < ActionDispatch::IntegrationTest
 
         assert_select "td", "Job 1"
 
-        assert_select "div.switch input[type=\"checkbox\"]", 2
-        assert_select "div.switch input[type=\"checkbox\"][checked]", 1
+        assert_select "a.accept_button", 2
+        assert_select "a.accept_button.grey", 1
     end
+    
     
     test "filter list subscriptions of one institutions" do
         get institution_subscriptions_path(@institution.id)
-        assert_select "div.switch input[type=\"checkbox\"]", 2
+        assert_select "a.accept_button", 2
         get institution_subscriptions_path(@institution.id, :search => 'Job 1')
         assert_response :success
-        assert_select "div.switch input[type=\"checkbox\"]", 1
+        assert_select "a.accept_button", 1
     end
 end
