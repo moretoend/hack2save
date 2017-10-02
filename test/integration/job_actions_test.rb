@@ -7,7 +7,6 @@ class JobActionsTest < ActionDispatch::IntegrationTest
     @institution = institutions(:standard)
   end
 
-  # Use separate examples per route / case
   test "can fill in form to create a new job" do
     get new_institution_job_path(@institution)
     assert_response :success
@@ -26,8 +25,20 @@ class JobActionsTest < ActionDispatch::IntegrationTest
             }
           }
     end
+    assert_redirected_to institution_jobs_path(@institution.id)
+    follow_redirect!
+    assert_response :success
+  end
 
-    assert_response :redirect
+  test "can edit a job through institution" do
+    get edit_institution_job_path(@institution, @institution.jobs.last)
+    assert_response :success
+
+    patch institution_job_path(@institution, @institution.jobs.last), params: { job: {title: "New name"} }
+    @institution.reload
+
+    assert @institution.jobs.last.title == "New name"
+    assert_redirected_to institution_jobs_path(@institution.id)
     follow_redirect!
     assert_response :success
   end
