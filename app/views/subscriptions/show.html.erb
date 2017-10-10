@@ -1,0 +1,27 @@
+<div class="row">
+<div class="col s12 m12 l12">
+  <h4>
+    <%= @subscription.job.title %>
+    <div class="right">
+      <%= link_to t("actions.back"), root_path, class: "btn gray"  %>
+    </div>
+  </h4>
+</div>
+</div>
+
+<div class="row">
+  <div class="col s12 m12 l12">
+    <span style="font-weight: bold"><%= Subscription.human_attribute_name(:cover_letter) %>:</span>
+    
+    <blockquote><%= @subscription.cover_letter %></blockquote>
+    <br />
+
+    <span style="font-weight: bold"><%= Subscription.human_attribute_name(:status) %>:</span>
+    <blockquote><%= @subscription.status %></blockquote>
+    <br />
+
+    <span style="font-weight: bold"><%= User.human_attribute_name(:email) %>:</span>
+    <blockquote><%= @subscription.user.email %></blockquote>
+    <br />
+  </div>
+</div>

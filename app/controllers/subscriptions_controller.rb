@@ -2,6 +2,7 @@ class SubscriptionsController < ApplicationController
     load_and_authorize_resource
     
     before_action :get_subscription, only: [:edit, :update, :show]
+    before_action :load_job, only:[:new, :create]
 
     def index
         @subscriptions = subscription_scope
@@ -13,7 +14,7 @@ class SubscriptionsController < ApplicationController
 
     def create
         build_subscription
-        if @subscription.save
+        if @subscription.save!
             redirect_to subscription_path(@subscription.id) 
         else
             render(:new, status: :unprocessable_entity)
@@ -47,6 +48,8 @@ class SubscriptionsController < ApplicationController
     def build_subscription
         @subscription ||= subscription_scope.build
         @subscription.attributes = subscription_params
+        @subscription.job = @job
+        @subscription.user = current_user
     end
 
 
@@ -59,4 +62,7 @@ class SubscriptionsController < ApplicationController
         Job.find(params[:job_id]).subscriptions
     end
 
+    def load_job
+        @job = Job.find(params[:job_id])
+    end
 end
