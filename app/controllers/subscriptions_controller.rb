@@ -14,7 +14,7 @@ class SubscriptionsController < ApplicationController
 
     def create
         build_subscription
-        if @subscription.save!
+        if @subscription.save
             redirect_to subscription_path(@subscription.id) 
         else
             render(:new, status: :unprocessable_entity)
