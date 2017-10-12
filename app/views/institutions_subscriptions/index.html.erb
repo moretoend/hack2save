@@ -53,24 +53,5 @@
         return false;
       }
     });
-
-    $("input[type=checkbox][name='accept_subscription']").on('change', function() {
-      var status = this.checked? 'approved' : 'rejected';
-      $.ajax({
-        url: '/subscriptions/'+$(this).val()+'.json',
-        type:'PUT',
-        data: {
-          subscription: {
-            status: status
-          }
-        }
-      }).success(function(a){
-        msg = '<%= t('messages.updated') %>'
-        Materialize.toast(msg, 3000, 'blue');
-      }).fail(function(){
-        msg = '<%= t('messages.error_update') %>'
-        Materialize.toast(msg, 3000, 'red');
-      });
-    });
   });
 </script>
