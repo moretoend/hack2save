@@ -38,6 +38,9 @@
               <%= link_to institution, class: "btn btn-floating red", data: { confirm: "Are you sure?" } do %>
                 <i class="material-icons">highlight_remove</i>
               <% end %>
+              <%= link_to institution_jobs_path(institution), class: "btn-floating gray", title: "Jobs Posted" do %>
+                <i class="material-icons">library_books</i>
+              <% end %>
             </td>
           </tr>
         <% end %>
