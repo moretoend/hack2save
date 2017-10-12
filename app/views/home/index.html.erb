@@ -1,28 +1,29 @@
 <!-- JOBS DASHBOARD BEGIN -->
-<div class="jobs-board">
-  <div class="row">
-      <div class="col s12 m12 l6">
-        <div class="card horizontal">
-            <div class="card-image">
-             <img src="https://lorempixel.com/200/200/nature/6">
-            </div>
-            <div class="card-stacked">
-              <div class="card-content">
-                <h5>Job 01 - Institution A</h5>
-                <hr>
-                <p><strong>description: </strong>work with general maintanance, gardening and organization.</p>
-                <hr>
-               <p><strong>requirements: </strong>For this job, it's necessary full commitment from the volunteer. Good interpersonal and soft skills</p>
+<% @jobs.each do |job| %>
+  <div class="jobs-board">
+    <div class="row">
+        <div class="col s12 m12 l6">
+          <div class="card horizontal">
+              <div class="card-image">
+              <img src="https://lorempixel.com/200/200/nature/6">
               </div>
-               <div class="card-action">
-                 <a href="#">Add as favorite</a>
-                 <a href="#">Apply for this job</a>
-               </div>
-            </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h5><%=job.title%></h5>
+                  <hr>
+                  <p><strong>description: </strong><%=job.description%></p>
+                  <hr>
+                <p><strong>requirements: </strong><%=job.requirements%></p>
+                </div>
+                <div class="card-action">
+                  <a href="#">Add as favorite</a>
+                  <%= link_to 'Apply for this job', new_job_subscription_path(job) %>
+                </div>
+              </div>
+          </div>
         </div>
-      </div>
+    </div>
+
   </div>
-
-</div>
-
+<%end%>
 <!-- JOBS DASHBOARD END -->

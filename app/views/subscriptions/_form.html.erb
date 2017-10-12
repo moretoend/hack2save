@@ -1,0 +1,4 @@
+<%= simple_form_for [@job, @subscription] do |f| %>
+  <%= f.input :cover_letter, input_html: { class: "materialize-textarea" } %>
+  <%= f.submit class: "btn blue" %>
+<% end %>
