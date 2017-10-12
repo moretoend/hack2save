@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   
   before_action :load_jobs, only: :index
   before_action :load_job, only: [:show, :edit, :update, :destroy]
+  before_action :load_institution, only: [:index, :new, :edit]
 
 
   def index
@@ -73,4 +74,7 @@ class JobsController < ApplicationController
     Institution.find(params[:institution_id]).jobs
   end
 
+  def load_institution
+    @institution = Institution.find(params[:institution_id])
+  end
 end
