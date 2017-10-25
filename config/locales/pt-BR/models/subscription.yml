@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      subscription:
+        one: "Inscrição"
+        other: "Inscrições"
+    attributes:
+      subscription:
+        status: "Status"
+        created_at: "Data"
+        cover_letter: "Carta de apresentação"
+        statuses:
+          pending: "Pendente"
+          rejected: "Rejeitado"
+          approved: "Aprovado"

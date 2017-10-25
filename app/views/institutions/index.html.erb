@@ -35,10 +35,10 @@
               <%= link_to edit_institution_path(institution), class: "btn-floating blue" do %>
                 <i class="material-icons">edit</i>
               <% end %>
-              <%= link_to institution, class: "btn btn-floating red", data: { confirm: "Are you sure?" } do %>
+              <%= link_to institution, class: "btn btn-floating red", data: { confirm:  t("messages.are_you_sure") } do %>
                 <i class="material-icons">highlight_remove</i>
               <% end %>
-              <%= link_to institution_jobs_path(institution), class: "btn-floating gray", title: "Jobs Posted" do %>
+              <%= link_to institution_jobs_path(institution), class: "btn-floating gray", title: Job.model_name.human(count: 2) do %>
                 <i class="material-icons">library_books</i>
               <% end %>
             </td>

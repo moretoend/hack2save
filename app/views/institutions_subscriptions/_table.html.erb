@@ -2,11 +2,11 @@
     <table class="bordered highlight centered responsive-table">
         <thead>
         <tr>
-            <th><%= t('activerecord.models.job') %></th>
-            <th><%= t('activerecord.models.user') %></th>
-            <th><%= t('activerecord.attributes.subscription.cover_letter') %></th>
-            <th><%= t('activerecord.attributes.subscription.created_at') %></th>
-            <th><%= t('activerecord.attributes.subscription.status') %></th>
+            <th><%= Job.model_name.human(count: 1) %></th>
+            <th><%= User.model_name.human(count: 1) %></th>
+            <th><%= Subscription.human_attribute_name(:cover_letter) %></th>
+            <th><%= Subscription.human_attribute_name(:created_at) %></th>
+            <th><%= Subscription.human_attribute_name(:status) %></th>
         </tr>
         </thead>
         <tbody>
@@ -21,7 +21,7 @@
                 </a>
                 <div id="cover_letter_<%= subscription.id %>" class="modal">
                 <div class="modal-content">
-                    <h4><%= t('activerecord.attributes.subscription.cover_letter') %></h4>
+                    <h4><%= Subscription.human_attribute_name(:cover_letter) %></h4>
                     <p><%= subscription.cover_letter %></p>
                 </div>
                 <div class="modal-footer">

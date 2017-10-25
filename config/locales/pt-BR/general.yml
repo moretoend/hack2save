@@ -3,6 +3,27 @@ pt-BR:
     add: Adicionar
     edit: Editar
     back: Voltar
+    close: "Fechar"
+    read: "Ler"
+    filter: "Filtrar"
+    approve: "Aprovar"
+    reject: "Rejeitar"
+    clear: "Limpar"
+    next_month: "Próximo mês"
+    prev_month: "Mês anterior"
+    select_month: "Selecione um mês"
+    select_year: "Selecione um ano"
+    add_as_favorite: "Adicionar aos favoritos"
+    apply_for_this_job: "Adicionar aos favoritos"
+
+  messages:
+    authorization: "Você não tem autorização para efetuar essa operação"
+    updated: "Alteração efetuada com sucesso"
+    error_update: "Não foi possível efetuar a alteração"
+    to: "até"
+    today: "Hoje"
+    are_you_sure: "Você tem certeza?"
+    
 
 
   institutions:
