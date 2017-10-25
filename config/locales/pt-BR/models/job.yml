@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      job:
+        one: "Trabalho"
+        other: "Trabalhos"
+    attributes:
+      job:
+        title: "Título"
+        description: "Descrição"
+        requirements: "Requerimento"
+        start_date: "Data de início"
+        end_date: "Data de Fim"
+ 

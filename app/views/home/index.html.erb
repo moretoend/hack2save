@@ -11,13 +11,13 @@
                 <div class="card-content">
                   <h5><%=job.title%></h5>
                   <hr>
-                  <p><strong>description: </strong><%=job.description%></p>
+                  <p><strong><%= Job.human_attribute_name(:description) %>: </strong><%=job.description%></p>
                   <hr>
-                <p><strong>requirements: </strong><%=job.requirements%></p>
+                <p><strong><%= Job.human_attribute_name(:requirements) %>: </strong><%=job.requirements%></p>
                 </div>
                 <div class="card-action">
-                  <a href="#">Add as favorite</a>
-                  <%= link_to 'Apply for this job', new_job_subscription_path(job) %>
+                  <a href="#"><%=t("actions.add_as_favorite")%></a>
+                  <%= link_to t("actions.apply_for_this_job"), new_job_subscription_path(job) %>
                 </div>
               </div>
           </div>

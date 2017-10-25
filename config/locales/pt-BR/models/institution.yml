@@ -9,4 +9,5 @@ pt-BR:
         name: "Nome"
         description: "Descrição"
         category: "Categoria"
+        created_at: "Data de criação"
  

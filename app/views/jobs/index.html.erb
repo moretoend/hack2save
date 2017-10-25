@@ -35,7 +35,7 @@
               <%= link_to edit_institution_job_path(job.institution, job), class: "btn-floating blue" do %>
                 <i class="material-icons">edit</i>
               <% end %>
-              <%= link_to institution_job_path(job.institution, job), method: :delete, class: "btn btn-floating red", data: { confirm: "Are you sure?" } do %>
+              <%= link_to institution_job_path(job.institution, job), method: :delete, class: "btn btn-floating red", data: { confirm: t("messages.are_you_sure") } do %>
                 <i class="material-icons">highlight_remove</i>
               <% end %>
               <%= link_to institution_job_path(job.institution, job), class: "btn btn-floating gray" do %>
