@@ -26,10 +26,10 @@
   <br />
   
   <span style="font-weight: bold"><%= Job.human_attribute_name(:start_date) %>:</span>
-  <blockquote><%= @job.start_date %></blockquote>
+  <blockquote><%= I18n.l(@job.start_date.to_date ) %></blockquote>
   <br />
   
   <span style="font-weight: bold"><%= Job.human_attribute_name(:end_date) %>:</span>
-  <blockquote><%= @job.end_date %></blockquote>
+  <blockquote><%= I18n.l(@job.end_date.to_date ) %></blockquote>
 </div>
 </div>

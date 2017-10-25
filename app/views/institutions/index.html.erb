@@ -30,7 +30,7 @@
             <td><%= institution.name %></td>
             <td><%= institution.description %></td>
             <td><%= institution.category %></td>
-            <td><%= I18n.l institution.created_at %></td>
+            <td><%= I18n.l(institution.created_at, format: :short) %></td>
             <td>
               <%= link_to edit_institution_path(institution), class: "btn-floating blue" do %>
                 <i class="material-icons">edit</i>
